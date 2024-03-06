@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 배열 생성하는 방법
+      const cars = ["Saab", "Volvo", "BMW"];
+      const cars1 = new Array("Saab", "Volvo", "BMW");
+
+      const cars2 = [];
+
+      // 배열 메소드
+      //   1. push() : 요소 추가(맨 뒤에)
+      cars2.push("Saab");
+
+      //   2. 조회
+      for (let index = 0; index < cars2.length; index++) {
+        const element = cars2[index];
+        console.log("for :", element);
+      }
+      // forin 방법은 객체 부를때 많이 사용한다
+      for (let i in cars2) {
+        console.log(i);
+        console.log("forin :", cars2[i]);
+      }
+      // 자바에서 향상된 for문 이랑 비슷하다
+      for (const car of cars2) {
+        console.log("forof :", car);
+      }
+
+      cars2.forEach((car) => {
+        console.log("foreach :", car);
+      });
+
+      //   3. 개별조회
+      console.log(cars1[1]);
+    </script>
+  </body>
+</html>

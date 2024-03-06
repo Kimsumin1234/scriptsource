@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 호이스팅(Moisting) : 선언하지 않고 호출
+      //     허용 : function 키워드로 작성된 함수
+      //            var 로 선언된 변수
+      x = 5;
+      document.write("x = " + x, "<br>");
+      var x;
+      document.write("reselt =", myFunction(4, 5), "<br>");
+      // 에러 : ReferenceError: Cannot access 'myFunction2' before initialization
+      // document.write("reselt =", myFunction2(5, 6), "<br>");
+
+      // 함수 정의
+      //  1. function 키워드
+      function myFunction(a, b) {
+        return a * b;
+      }
+
+      //  2. 함수 표현식
+      const myFunction2 = function (a, b = 10) {
+        console.log("b = " + b);
+        return a * b;
+      };
+
+      // 함수 사용 - 호출
+      let result = myFunction(3, 4);
+      document.write("reselt =", result, "<br>");
+      document.write("reselt =", myFunction2(4, 5), "<br>");
+    </script>
+  </body>
+</html>

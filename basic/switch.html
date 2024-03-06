@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //  국어,영어,수학 입력 받은 후 평균을 구한 후 점수가 >=90 A, >=80 B, >=70 C, >=60 D, E
+      let kor = Number(prompt("국어 점수 입력"));
+      let eng = Number(prompt("영어 점수 입력"));
+      let math = Number(prompt("수학 점수 입력"));
+
+      let avg = (kor + eng + math) / 3;
+      let msg = "";
+
+      // >=, switch 구문은 크다 작다를 못하기 때문에
+      switch (parseInt(avg / 10)) {
+        case 10:
+        case 9:
+          msg = "A";
+          break;
+        case 8:
+          msg = "B";
+          break;
+        case 7:
+          msg = "C";
+          break;
+        case 6:
+          msg = "D";
+          break;
+
+        default:
+          msg = "E";
+          break;
+      }
+      alert("등급 : " + msg);
+    </script>
+  </body>
+</html>

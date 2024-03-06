@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 반복
+      // while, for
+
+      // for
+      // for/in
+      // for/of
+
+      // while
+      // do~while
+
+      // 1 ~ 10 까지 출력
+      for (let index = 1; index < 11; index++) {
+        console.log(index);
+      }
+
+      // 1 ~ 100 까지 짝수만 출력
+      for (let index = 1; index < 101; index++) {
+        if (index % 2 == 0) {
+          console.log(index);
+        }
+      }
+
+      // break, continue 다 사용 가능
+      for (let index = 0; index < 101; index += 2) {
+        if (index == 50) break;
+
+        console.log(index);
+      }
+
+      // 1 ~ 10 까지 while 문으로
+      let index = 1;
+      while (index < 11) {
+        console.log(index);
+        index++;
+      }
+
+      // 1 ~ 100 까지 짝수만 출력 while 문으로
+      let index1 = 1;
+      while (index1 < 101) {
+        if (index1 % 2 == 0) {
+          console.log(index1);
+        }
+        index1++;
+      }
+    </script>
+  </body>
+</html>
