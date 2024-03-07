@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <button type="button" onclick="myFunction()">클릭해주세요</button>
+      <button type="button">클릭해주세요2</button>
+    </div>
+    <script>
+      // 이벤트 - 사이트에서 방문자가 취하는 모든 행위
+      // 이벤트 발생 => 이벤트가 발생했음을 감지하는 코드가 필요 - 이벤트 핸들러 or 이벤트 리스너
+
+      // on~ - 이벤트 리스너  ex) onclick
+      // myFunction() - 이벤트 핸들러
+      function myFunction() {
+        // 버튼이 눌러졌을 때 해야할 코드
+        alert("버튼이 클릭됨");
+      }
+
+      // 1. 직접 태그 안에 onclick="myFunction()" 쓰는 방법
+      // 2. addEventListener("이벤트명",함수명) - 자바스크립트 를 이용해서 속성 추가하기 (이방법을 많이 사용한다)
+      //    document.querySelector("button:nth-of-type(2)").addEventListener("click", myFunction);
+      document.querySelector("button:nth-of-type(2)").addEventListener("click", () => alert("두번째 버튼이 클릭됨"));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <button type="button" onclick="multiple()">3의 배수면 박수</button>
+    </div>
+    <div>
+      <button type="button" onclick="multiple2()">3의 배수면 박수,9의 배수면 박수x2</button>
+    </div>
+    <div>
+      <button type="button" onclick="multiple3()">3,6,9 박수</button>
+    </div>
+    <script>
+      // function 작성
+      // 1. function 키워드 사용 방식 add 함수 정의 후 호출 결과 확인
+      function add(x, y) {
+        return x + y;
+      }
+      console.log(add(2, 10));
+      let reselt = add(2, 10);
+      document.write("x + y = " + reselt + "<br>");
+
+      // 2. 1번을 함수 표현식으로 바꿔서 작성 (1번과 다른점 호이스팅 안되게 할려면 함수표현식으로)
+      const myAdd = function (x, y) {
+        return x + y;
+      };
+      console.log(myAdd(2, 10));
+
+      // 3. 1번을 화살표 함수로 바꿔서 작성 (2번 방식을 간단히 표현한 함수)
+      const myAdd2 = (x, y) => x + y;
+      console.log(myAdd2(2, 10));
+
+      // 4. 1 ~ 10 까지 숫자를 더해서 결과를 리턴하는 함수 작성
+      const myAdd3 = () => {
+        let sum = 0;
+        for (let index = 1; index < 11; index++) {
+          sum += index;
+        }
+        return sum;
+      };
+      document.write("1 ~ 10 덧셈 : " + myAdd3() + "<br>");
+
+      // 5. 입력되는 숫자가 3의 배수이면 "박수" 출력, 아니면 "통과" 하는 함수 작성 multiple(숫자)
+      function multiple() {
+        let number = Number(prompt("숫자를 입력하시오"));
+        if (number % 3 == 0) {
+          document.write("박수" + "<br>");
+        } else {
+          document.write("통과" + "<br>");
+        }
+      }
+      // 6. 입력되는 숫자가 3의 배수이면 "박수" 9의 배수이면 "박수x2" 출력, 아니면 "통과" 하는 함수 작성 multiple2(숫자)
+      function multiple2() {
+        let number = Number(prompt("숫자를 입력하시오"));
+        if (number % 3 == 0) {
+          if (number % 9 != 0) {
+            document.write("박수" + "<br>");
+          } else {
+            document.write("박수x2" + "<br>");
+          }
+        } else {
+          document.write("통과" + "<br>");
+        }
+      }
+      // 7. 두 개 과목의 점수를 받아서 합이 120 이상이면 합격 (단, 한 과목이 40점 미만이면 과락으로 불합격)
+      function pass(num1, num2) {
+        const jumsu = num1 + num2;
+        if (jumsu >= 120 && num1 >= 40 && num2 >= 40) {
+          document.write("합격" + "<br>");
+        } else {
+          document.write("불합격" + "<br>");
+        }
+      }
+      pass(40, 100);
+      // 8. 3의 배수에서 박수를 치는게 아니라 끝자리가 3,6,9로 끝나는 숫자라면 "박수" 아니면 통과 multiple3(숫자)
+      function multiple3() {
+        let number = Number(prompt("숫자를 입력하시오"));
+        let digit = number % 10;
+        if (digit == 3 || digit == 6 || digit == 9) {
+          document.write("박수" + "<br>");
+        } else {
+          document.write("통과" + "<br>");
+        }
+      }
+    </script>
+  </body>
+</html>

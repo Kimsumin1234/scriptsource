@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="test">
+      <p>반갑습니다</p>
+    </div>
+    <script>
+      // 2. 요소 생성
+      // <h1>Hello Dom</h1> (<element>TextNode</element>)
+      //  1) appendChild() 방법 - 요소 뒤에 생성
+      const header = document.createElement("h1");
+      const content = document.createTextNode("Hello Dom");
+
+      // h1 요소와 텍스트 노드 연결
+      header.appendChild(content);
+
+      // body 자식 요소로 추가
+      document.body.appendChild(header);
+
+      //  2) 문자열로 하는 방법 - 브라우저 창 전체를 혼자 다쓰는 단점이 있다
+      //   let ouput = "<ul><li>javascript</li>";
+      //   ouput += "<li>html</li>";
+      //   ouput += "<li>css</li>";
+      //   ouput += "<li>jquery</li>";
+      //   ouput += "</ul>";
+
+      //   document.body.innerHTML = ouput;
+
+      //  3) insertAdjancentHTML(위치,삽입할요소) - 이 방법을 많이 사용한다
+      //     beforeend : 현재 태그 요소의 마지막 자식으로 삽입
+      //     beforebegin : 현재 태그 요소의 이전 형제 요소로 삽입
+      //     afterbegin : 현재 태그 요소의 첫번째 자식으로 삽입
+      //     afterend : 현재 태그 요소의 다음 형제 요소로 삽입
+      const p = "<p>안녕하세요</p>";
+      document.getElementById("test").insertAdjacentHTML("afterend", p);
+    </script>
+  </body>
+</html>

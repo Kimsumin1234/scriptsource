@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <button type="button" onclick="href()">클릭</button>
+    </div>
+    <div>
+      <button type="button" onclick="history.back()">이전</button>
+      <button type="button" onclick="history.forward()">다음</button>
+      <button type="button" onclick="history.go(-2)">지정된만큼</button>
+    </div>
+    <script>
+      // BOM : Browser Object Model
+      // => 1. window(브라우저 창), 2. location(주소줄), 3. history(뒤로가기 같은거), 4. document(브라우저 흰색화면)
+
+      // DOM : Document Object Model (문서 객체 모델)
+      // html => 자바스크립트를 이용해서 요소에 접근 (html로 문서를 작성하면 자바스크립트를 통해서 요소에 접근)
+      // 자바스크립트를 이용해서 모든 요소에 변화를 줄수있다
+      // 값, 스타일, 요소제거, 요소변경, 요소추가... 다양한 변화가 가능
+
+      // 1. window - open(), alert(), prompt(), setTimeout()...
+      //   window.open("https://www.naver.com"); 네이버 창 띄우기
+      //   window.open("./child.html", "", "width=420,height=550"); 광고 창 띄우기
+
+      // 2. location
+      //    href 속성 - 뒤로가기가 남음(이걸 많이씀), replace() - 뒤로가기가 안남음
+      function href() {
+        // location.href = "https://www.naver.com";
+        location.replace("https://www.naver.com");
+      }
+
+      // 3. history
+      //    back(), forward(), go()
+      //    버튼에 바로 쓰기 가능
+    </script>
+  </body>
+</html>

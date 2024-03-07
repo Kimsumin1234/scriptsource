@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .alert-danger {
+        height: 60px;
+        color: #58151c;
+        border: 1px solid #f1aeb5;
+        border-radius: 10px;
+        background-color: #f8d7da;
+        line-height: 60px;
+        padding-left: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <button type="button" onclick="myFunction()">버튼 1</button>
+    </div>
+    <div class="alert alert-danger"><span>10</span>초 이내 구매시 사은품 증정!!</div>
+    <script>
+      // 내장함수 - alert(), prompt(), Number(), parseInt(), isNaN()
+
+      // URI - Identifier => URL + 자원식별 (어떤 경로를 의미)
+      // URL - Location (어떤 경로를 의미)
+      // 주소 + 데이터 를 딸려 보내는 방식 => get 방식
+
+      // 한글은 글자가 깨질수 있기때문에 컴퓨터가 이해 할수있게 인코딩을 한다
+      // encodeURI() : 영문, 숫자, 일부기호 제외 하고 인코딩
+      // encodeURIComponent() : 영문, 숫자 제외 하고 인코딩
+      document.write(encodeURI("http://localhost:8080/basic/info.html?name=홍길동&age=15"), "<br>");
+      document.write(encodeURIComponent("http://localhost:8080/basic/info.html?name=홍길동&age=15"), "<br>");
+
+      // decode - encode 된걸 해석해서 보여준다
+      document.write(decodeURI("http://localhost:8080/basic/info.html?name=%ED%99%8D%EA%B8%B8%EB%8F%99&age=15"), "<br>");
+      document.write(decodeURIComponent("http%3A%2F%2Flocalhost%3A8080%2Fbasic%2Finfo.html%3Fname%3D%ED%99%8D%EA%B8%B8%EB%8F%99%26age%3D15"), "<br>");
+
+      // confirm() - alert, prompt 와 비슷하다
+      function myFunction() {
+        let result = confirm("버튼을 클릭함");
+        console.log(result);
+      }
+
+      // 코드 실행 => 정석은 순차대로 (위=>아래) : 동기식
+      //                     순차대로x           : 비동기식
+      // setTimeout(함수,숫자) - 비동기식
+
+      //   console.log("시작");
+      //   setTimeout(() => {
+      //     console.log("3초가 지났습니다");
+      //   }, 3000);
+      //   console.log("마무리");
+
+      setTimeout(() => {
+        // 광고창 10초뒤에 닫기
+        document.querySelector(".alert").style.display = "none";
+      }, 10000);
+
+      // setInterval() - 일정시간 마다 반복 실행
+      setInterval(() => {
+        console.log("안녕");
+      }, 2000);
+    </script>
+  </body>
+</html>
