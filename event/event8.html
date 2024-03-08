@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #p1 {
+        /* 요소 안보이게 하는 방법 */
+        /* display: none; - 요소의 영역도 제거 <=> diplay: block(요소) */
+        /* visibility: hidden; - 요소의 영역은 남겨둠 <=> visibility: visible */
+      }
+    </style>
+  </head>
+  <body>
+    <p id="deno">JavaScript can change HTML content</p>
+    <button type="button">Click me</button>
+    <div id="ex">여기가 div 요소로 선언되었습니다.</div>
+    <p>
+      <a href="#" id="display">div 요소 내용 출력하기</a>
+    </p>
+    <p>
+      <a href="#" id="revalue">div 요소 내용 변경하기</a>
+    </p>
+    <div id="light">
+      <button type="button" class="on">Turn on the light</button>
+      <img src="./pic_bulboff.gif" alt="" />
+      <button type="button" class="auto">Turn auto the light</button>
+      <button type="button" class="off">Turn off the light</button>
+    </div>
+    <div>
+      <p id="p1">This is a paragraph.</p>
+      <button type="button" id="hidden">요소 숨김</button>
+      <button type="button" id="visible">요소 보이기</button>
+    </div>
+    <script>
+      // 버튼 클릭시 p 요소의 텍스트 값을 변경하기
+      // Hello Javascript!!
+      const button = document.querySelector("button");
+      const deno = document.getElementById("deno");
+      button.addEventListener("click", () => {
+        deno.innerText = "Hello Javascript!!";
+      });
+
+      // display 영역을 클릭하면 display 요소 텍스트를 가져와서 ex 요소의 내용으로 변경하기
+      const display = document.getElementById("display");
+      const ex = document.getElementById("ex");
+      display.addEventListener("click", () => {
+        display.innerText = ex.innerText;
+      });
+      // revalue 요소를 클릭하면 ex 요소의 내용을 내용이 변경되었습니다 라는 텍스트가 나타나도록 하기
+      const revalue = document.getElementById("revalue");
+      revalue.addEventListener("click", () => {
+        ex.innerText = "내용이 변경되었습니다";
+      });
+
+      // 전구 켜고 끄기
+      //  - 개별로 하는 방법
+      const img = document.querySelector("img");
+      //   const on = document.querySelector("#light button:first-child");
+      //   console.log(on);
+      //   on.addEventListener("click", () => {
+      //     img.src = "./pic_bulbon.gif";
+      //   });
+      //   const off = document.querySelector("#light button:last-child");
+      //   off.addEventListener("click", () => {
+      //     img.src = "./pic_bulboff.gif";
+      //   });
+
+      //  - 이벤트 버블링 방법
+      document.querySelector("#light").addEventListener("click", (e) => {
+        //어디서 이벤트가 온것인가?
+        console.log("클래스명 확인 ", e.target.classList);
+        console.log("클래스명 을 가지고있나? ", e.target.classList.contains("on"));
+        // add(), remove(), replace(), toggle()
+        if (e.target.classList.contains("on")) {
+          img.src = "./pic_bulbon.gif";
+        } else {
+          img.src = "./pic_bulboff.gif";
+        }
+      });
+
+      // 전구 자동으로 깜빡이기 (연습삼아 해보는거)
+      const auto = document.querySelector("#light button:nth-child(3)");
+      console.log(auto);
+      auto.addEventListener("click", () => {
+        setInterval(() => {
+          img.src = "./pic_bulbon.gif";
+        }, 200);
+        setInterval(() => {
+          img.src = "./pic_bulboff.gif";
+        }, 300);
+      });
+
+      // 요소 안보이게 하기
+      const p1 = document.getElementById("p1");
+      console.log(p1);
+      const hidden = document.getElementById("hidden");
+      const visible = document.getElementById("visible");
+      hidden.addEventListener("click", () => (p1.style.visibility = "hidden"));
+      visible.addEventListener("click", () => (p1.style.visibility = "visible"));
+    </script>
+  </body>
+</html>

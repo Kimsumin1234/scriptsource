@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <form action="" method="post">
+      <div>
+        <label>
+          이름
+          <input type="text" name="word1" id="word1" value="ABCDE" />
+        </label>
+      </div>
+      <div>
+        <label>
+          이름
+          <input type="text" name="word2" id="word2" />
+        </label>
+      </div>
+      <div>
+        <label>
+          이름
+          <input type="text" name="word3" id="word3" value="ABCDE" />
+        </label>
+      </div>
+      <div>
+        <select name="fruits" id="">
+          <option value="사과">사과</option>
+          <option value="오렌지">오렌지</option>
+          <option value="딸기">딸기</option>
+          <option value="바나나">바나나</option>
+          <option value="망고">망고</option>
+        </select>
+      </div>
+    </form>
+    <script>
+      // change, input, blur
+      // change - 값의 변화가 일어나고, 포커스가 빠질 때 발생
+      // input - 입력하면서 바로바로 발생
+      // blur - 값의 변화와 상관없이 포커스만 빠지면 발생
+      const word1 = document.getElementById("word1");
+      word1.addEventListener("change", (e) => {
+        // 사용자의 입력값을 소문자로 변경
+        // 사용자의 입력값 가져오기 => 소문자로 변경후 => value 에 삽입
+        // form 요소 이기 때문에 value 를 사용
+
+        // console.log(e.target.value);
+        e.target.value = e.target.value.toLowerCase();
+      });
+      const word2 = document.getElementById("word2");
+      word2.addEventListener("input", (e) => {
+        e.target.value = e.target.value.toLowerCase();
+      });
+      const word3 = document.getElementById("word3");
+      word3.addEventListener("blur", (e) => {
+        e.target.value = e.target.value.toLowerCase();
+      });
+
+      // selet 요소 에도 change 적용 가능
+      const select = document.querySelector("select");
+      select.addEventListener("change", (e) => console.log(e.target.value));
+    </script>
+  </body>
+</html>

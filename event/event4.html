@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="" method="get">
+      <input type="radio" name="gender" id="" value="남" />남자 <input type="radio" name="gender" id="" value="여" />여자
+    </form>
+    <script>
+      // const radio = document.querySelectorAll("[type=radio]");
+      // console.log(radio);
+
+      // radio.forEach((gen) => {
+      //   gen.addEventListener("click", (e) => {
+      //     console.log(e.target.value);
+      //   });
+      // });
+
+      // 이벤트 버블링
+      // - 자식요소에 이벤트가 발생하면 부모요소에도 영향을 줄수가있다
+      const form = document.querySelector("form");
+      form.addEventListener("click", (e) => {
+        console.log(e.target.value);
+
+        // e.target - 이벤트가 발생한 실제 대상
+        // e.currentTarget : 이벤트 버블링으로 이벤트가 발생한 모든 요소
+        console.log("e.currentTarget ", e.currentTarget);
+      });
+    </script>
+  </body>
+</html>
