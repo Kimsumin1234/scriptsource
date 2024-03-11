@@ -50,6 +50,22 @@
       // 배열 요소에 접근하기
       console.log(products[1]);
       console.log(products[1].title);
+
+      // products 값 화면 출력해서 보여주기
+      // 디자인 영역 가져오기 => products 값 삽입
+      // forEach((변수명, 인덱스번호)
+      const cards = document.querySelectorAll(".card");
+      cards.forEach((card, idx) => {
+        console.log(card, " ", idx);
+
+        // 삽입할 영역 조회하기
+        console.log(card.querySelector("h5").innerHTML);
+        console.log(card.querySelector("p > span").innerHTML);
+
+        // products 값 삽입
+        card.querySelector("h5").innerHTML = products[idx].title;
+        card.querySelector("p > span").innerHTML = products[idx].price;
+      });
     </script>
   </body>
 </html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .alert-box {
+        background-color: skyblue;
+        padding: 20px;
+        color: white;
+        border-radius: 5px;
+        margin: 10px;
+        position: relative;
+
+        display: none;
+      }
+      .alert-box span {
+        position: absolute;
+        right: 10px;
+        top: 5px;
+
+        cursor: pointer;
+      }
+      button {
+        border: 0;
+        border-radius: 10px;
+        padding: 10px;
+        background-color: rgb(54, 62, 228);
+        color: white;
+
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="alert-box">
+      알림창
+      <span class="close">X</span>
+    </div>
+    <button class="btn1">버튼 1</button>
+    <button class="btn2">버튼 2</button>
+    <script>
+      // 버튼 클릭시 알림창 보여주기
+      // 버튼 1 : 아이디를 입력해 주세요 라는 메세지 띄우기
+      // 버튼 2 : 비밀번호를 입력해 주세요 라는 메세지 띄우기
+      const btn1 = document.querySelector(".btn1");
+      const btn2 = document.querySelector(".btn2");
+      const box = document.querySelector(".alert-box");
+      const close = document.querySelector(".close");
+      console.log(close);
+      console.log(box.firstChild);
+      // firstElementChild : 태그로 감싸진 요소중에 첫번째 자식
+      console.log(box.firstElementChild);
+
+      // 이방법을 사용하면 span 까지 한꺼번에 바꿔버려서 span이 사라진다
+      console.log(box.innerText);
+      console.log(box.innerHTML);
+      console.log(box.textContent);
+
+      // <span class="close">X</span>이 안사라지는 방법 1 : <span>알림창</span> 도 span 태그로 감싸져있는경우
+      // <span class="close">X</span>이 안사라지는 방법 2 : box.firstChild, box.firstElementChild 를 활용한다
+
+      // 개별로 하는방법
+      // btn1.addEventListener("click", () => {
+      //   box.style.display = "block";
+
+      //   box.firstChild.textContent = "아이디를 입력해 주세요";
+      // });
+      // btn2.addEventListener("click", () => {
+      //   box.style.display = "block";
+
+      //   box.firstChild.textContent = "비밀번호를 입력해 주세요";
+      // });
+
+      // x 클릭 시 알림창 숨기기
+      // close.addEventListener("click", () => {
+      //   box.style.display = "none";
+      // });
+
+      // 함수를 사용해서 한번에 하는방법
+      const notification = (state, msg) => {
+        box.style.display = state;
+        if (msg != undefined) {
+          box.firstChild.textContent = msg;
+        }
+      };
+      btn1.addEventListener("click", () => notification("block", "아이디를 입력해 주세요"));
+      btn2.addEventListener("click", () => notification("block", "비밀번호를 입력해 주세요"));
+      close.addEventListener("click", () => notification("none"));
+    </script>
+  </body>
+</html>
