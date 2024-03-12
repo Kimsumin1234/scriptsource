@@ -48,15 +48,14 @@
       const btn2 = document.querySelector(".btn2");
       const box = document.querySelector(".alert-box");
       const close = document.querySelector(".close");
-      console.log(close);
-      console.log(box.firstChild);
+      console.log("firstChild :", box.firstChild);
       // firstElementChild : 태그로 감싸진 요소중에 첫번째 자식
-      console.log(box.firstElementChild);
+      console.log("firstElementChild :", box.firstElementChild);
 
       // 이방법을 사용하면 span 까지 한꺼번에 바꿔버려서 span이 사라진다
-      console.log(box.innerText);
-      console.log(box.innerHTML);
-      console.log(box.textContent);
+      console.log("innerText :", box.innerText);
+      console.log("innerHTML :", box.innerHTML);
+      console.log("textContent :", box.textContent);
 
       // <span class="close">X</span>이 안사라지는 방법 1 : <span>알림창</span> 도 span 태그로 감싸져있는경우
       // <span class="close">X</span>이 안사라지는 방법 2 : box.firstChild, box.firstElementChild 를 활용한다
