@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Header</h1>
+    <form action="" method="post">
+      <div>
+        <input type="text" name="name" id="name" />
+      </div>
+      <button type="submit">전송</button>
+    </form>
+    <!-- jQuery cdn -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // jQuery
+      //  - 목적 : 자바스크립트 대용
+      //           예전 버전 자바스크립트 경우에 불편한점들이 있엇다 (브라우저마다 다르게 코드를 작성한다거나, 코드가 너무 길거나...)
+      //           jQuery 로 자바스크립트가 가지고있는 불편한점들 많이 해결
+      //           ajax 코드 작성할때 jQuery 를 많이 사용함
+      //  - 장점 : dom 요소 접근, ajax 코드 작성 간편
+      //  - 단점 : 라이브러리를 로드 해야함 (네트워크적으로 부담, 프로젝트가 헤비해진다)
+      //  - 사용방법 : 1. jQuery 사이트 에서 다운로드  2. cdn 등록
+      //  - 지금 현재에는 버전업이 많이 되서 자바스크립트가 가지고 있던 불편한점들이 해결된 상황 => jQuery 를 사용할 필요가 없어짐 (fetch 함수가 등장)
+      //  - 하지만 아직까지도 웹사이트에는 jQuery 기반인 사이트가 많이 존재함
+      //  - 부트스트랩 4.x 버전 이하 에서는 동적인 작업을 하는 탬플릿 같은 경우 jQuery 를 사용하고 있다
+
+      // form 요소 찾기
+      const form = $("form");
+      console.log(form);
+      // name 요소 찾기
+      const name = $("#name");
+      console.log(name);
+      // h1 찾기
+      const header = $("h1");
+      console.log(header.html()); // 자바스크립트 에서는 innerHTML, innerText
+    </script>
+  </body>
+</html>
